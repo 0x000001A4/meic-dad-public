@@ -1,0 +1,2 @@
+obj\Debug\netcoreapp3.1\Protos/DADChatBroadcastService.cs \
+obj\Debug\netcoreapp3.1\Protos/DADChatBroadcastServiceGrpc.cs: Protos/DADChatBroadcastService.proto

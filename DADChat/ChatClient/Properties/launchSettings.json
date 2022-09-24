@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "ChatClient1": {
+      "commandName": "Project",
+      "commandLineArgs": "8001"
+    },
+    "ChatClient2": {
+      "commandName": "Project",
+      "commandLineArgs": "8002"
+    },
+    "ChatClient3": {
+      "commandName": "Project",
+      "commandLineArgs": "8003"
+    }
+  }
+}

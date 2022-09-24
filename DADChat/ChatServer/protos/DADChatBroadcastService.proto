@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ChatServer";
+
+service ChatServerBroadcastService {
+	rpc PostMessage (ChatServerBroadcastMessageRequest) returns (ChatServerBroadcastMessageReply);
+}
+
+message ChatServerBroadcastMessageRequest {
+	string msg = 1;
+}
+
+message ChatServerBroadcastMessageReply {
+	bool ok = 1;
+}

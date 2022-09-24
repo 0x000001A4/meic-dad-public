@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ChatClient";
+
+service ChatServerService {
+  rpc Register (ChatClientRegisterRequest) returns (ChatClientRegisterReply);
+  rpc SendMessage (ChatClientSendMessageRequest) returns (ChatClientSendMessageResponse);
+}
+
+message ChatClientRegisterRequest {
+  string nick = 1;
+  string url = 2;	
+}
+message ChatClientRegisterReply {
+	bool ok = 1;
+}
+
+
+message ChatClientSendMessageRequest {
+	string msg = 1;
+	string from = 2;
+}
+
+message ChatClientSendMessageResponse {
+	bool ok = 1;
+}

@@ -1,0 +1,2 @@
+obj\Debug\netcoreapp3.1\protos/DADBroadcast.cs \
+obj\Debug\netcoreapp3.1\protos/DADBroadcastGrpc.cs: protos/DADBroadcast.proto
