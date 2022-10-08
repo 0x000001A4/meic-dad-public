@@ -42,24 +42,22 @@ namespace ChatServer {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
-    static readonly grpc::Marshaller<global::ChatServer.ChatClientRegisterRequest> __Marshaller_ChatClientRegisterRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatServer.ChatClientRegisterRequest.Parser));
-    static readonly grpc::Marshaller<global::ChatServer.ChatClientRegisterReply> __Marshaller_ChatClientRegisterReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatServer.ChatClientRegisterReply.Parser));
-    static readonly grpc::Marshaller<global::ChatServer.ChatClientSendMessageRequest> __Marshaller_ChatClientSendMessageRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatServer.ChatClientSendMessageRequest.Parser));
-    static readonly grpc::Marshaller<global::ChatServer.ChatClientSendMessageReply> __Marshaller_ChatClientSendMessageReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatServer.ChatClientSendMessageReply.Parser));
+    static readonly grpc::Marshaller<global::ChatServer.Request> __Marshaller_Request = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatServer.Request.Parser));
+    static readonly grpc::Marshaller<global::ChatServer.Reply> __Marshaller_Reply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatServer.Reply.Parser));
 
-    static readonly grpc::Method<global::ChatServer.ChatClientRegisterRequest, global::ChatServer.ChatClientRegisterReply> __Method_Register = new grpc::Method<global::ChatServer.ChatClientRegisterRequest, global::ChatServer.ChatClientRegisterReply>(
+    static readonly grpc::Method<global::ChatServer.Request, global::ChatServer.Reply> __Method_Register = new grpc::Method<global::ChatServer.Request, global::ChatServer.Reply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Register",
-        __Marshaller_ChatClientRegisterRequest,
-        __Marshaller_ChatClientRegisterReply);
+        __Marshaller_Request,
+        __Marshaller_Reply);
 
-    static readonly grpc::Method<global::ChatServer.ChatClientSendMessageRequest, global::ChatServer.ChatClientSendMessageReply> __Method_SendMessage = new grpc::Method<global::ChatServer.ChatClientSendMessageRequest, global::ChatServer.ChatClientSendMessageReply>(
+    static readonly grpc::Method<global::ChatServer.Request, global::ChatServer.Reply> __Method_SendMessage = new grpc::Method<global::ChatServer.Request, global::ChatServer.Reply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "SendMessage",
-        __Marshaller_ChatClientSendMessageRequest,
-        __Marshaller_ChatClientSendMessageReply);
+        __Marshaller_Request,
+        __Marshaller_Reply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -71,12 +69,12 @@ namespace ChatServer {
     [grpc::BindServiceMethod(typeof(ChatServerService), "BindService")]
     public abstract partial class ChatServerServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::ChatServer.ChatClientRegisterReply> Register(global::ChatServer.ChatClientRegisterRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ChatServer.Reply> Register(global::ChatServer.Request request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::ChatServer.ChatClientSendMessageReply> SendMessage(global::ChatServer.ChatClientSendMessageRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ChatServer.Reply> SendMessage(global::ChatServer.Request request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -98,8 +96,8 @@ namespace ChatServer {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ChatServerServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Register, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatServer.ChatClientRegisterRequest, global::ChatServer.ChatClientRegisterReply>(serviceImpl.Register));
-      serviceBinder.AddMethod(__Method_SendMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatServer.ChatClientSendMessageRequest, global::ChatServer.ChatClientSendMessageReply>(serviceImpl.SendMessage));
+      serviceBinder.AddMethod(__Method_Register, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatServer.Request, global::ChatServer.Reply>(serviceImpl.Register));
+      serviceBinder.AddMethod(__Method_SendMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatServer.Request, global::ChatServer.Reply>(serviceImpl.SendMessage));
     }
 
   }

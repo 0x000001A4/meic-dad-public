@@ -428,11 +428,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\Labs\\Lab1\\DADChat\\ChatClient\\ChatClient.csproj",
+      "projectUniqueName": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\meic-dad-public\\DADChat\\ChatClient\\ChatClient.csproj",
       "projectName": "ChatClient",
-      "projectPath": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\Labs\\Lab1\\DADChat\\ChatClient\\ChatClient.csproj",
+      "projectPath": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\meic-dad-public\\DADChat\\ChatClient\\ChatClient.csproj",
       "packagesPath": "C:\\Users\\ricky\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\Labs\\Lab1\\DADChat\\ChatClient\\obj\\",
+      "outputPath": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\meic-dad-public\\DADChat\\ChatClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ricky\\AppData\\Roaming\\NuGet\\NuGet.Config",

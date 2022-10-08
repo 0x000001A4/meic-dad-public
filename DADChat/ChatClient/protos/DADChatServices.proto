@@ -3,24 +3,30 @@
 option csharp_namespace = "ChatClient";
 
 service ChatServerService {
-  rpc Register (ChatClientRegisterRequest) returns (ChatClientRegisterReply);
-  rpc SendMessage (ChatClientSendMessageRequest) returns (ChatClientSendMessageResponse);
+  rpc Register (Request) returns (Reply);
+  rpc SendMessage(Request) returns (Reply);
 }
 
-message ChatClientRegisterRequest {
-  string nick = 1;
-  string url = 2;	
-}
-message ChatClientRegisterReply {
-	bool ok = 1;
+message Request {
+
+	uint32 id = 1;
+
+	message RegisterReq {
+		string nick = 1;
+		string url = 2;	
+	}
+
+	message SendMessageReq {
+		string msg = 1;
+		string from = 2;
+	}
+
+	oneof msg {
+		RegisterReq RegisterRequest = 2;
+		SendMessageReq SendMessageRequest = 3;
+	}
 }
 
-
-message ChatClientSendMessageRequest {
-	string msg = 1;
-	string from = 2;
-}
-
-message ChatClientSendMessageResponse {
+message Reply {
 	bool ok = 1;
 }

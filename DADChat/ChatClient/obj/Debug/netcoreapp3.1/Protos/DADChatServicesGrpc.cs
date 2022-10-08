@@ -42,24 +42,22 @@ namespace ChatClient {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
-    static readonly grpc::Marshaller<global::ChatClient.ChatClientRegisterRequest> __Marshaller_ChatClientRegisterRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatClient.ChatClientRegisterRequest.Parser));
-    static readonly grpc::Marshaller<global::ChatClient.ChatClientRegisterReply> __Marshaller_ChatClientRegisterReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatClient.ChatClientRegisterReply.Parser));
-    static readonly grpc::Marshaller<global::ChatClient.ChatClientSendMessageRequest> __Marshaller_ChatClientSendMessageRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatClient.ChatClientSendMessageRequest.Parser));
-    static readonly grpc::Marshaller<global::ChatClient.ChatClientSendMessageResponse> __Marshaller_ChatClientSendMessageResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatClient.ChatClientSendMessageResponse.Parser));
+    static readonly grpc::Marshaller<global::ChatClient.Request> __Marshaller_Request = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatClient.Request.Parser));
+    static readonly grpc::Marshaller<global::ChatClient.Reply> __Marshaller_Reply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatClient.Reply.Parser));
 
-    static readonly grpc::Method<global::ChatClient.ChatClientRegisterRequest, global::ChatClient.ChatClientRegisterReply> __Method_Register = new grpc::Method<global::ChatClient.ChatClientRegisterRequest, global::ChatClient.ChatClientRegisterReply>(
+    static readonly grpc::Method<global::ChatClient.Request, global::ChatClient.Reply> __Method_Register = new grpc::Method<global::ChatClient.Request, global::ChatClient.Reply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Register",
-        __Marshaller_ChatClientRegisterRequest,
-        __Marshaller_ChatClientRegisterReply);
+        __Marshaller_Request,
+        __Marshaller_Reply);
 
-    static readonly grpc::Method<global::ChatClient.ChatClientSendMessageRequest, global::ChatClient.ChatClientSendMessageResponse> __Method_SendMessage = new grpc::Method<global::ChatClient.ChatClientSendMessageRequest, global::ChatClient.ChatClientSendMessageResponse>(
+    static readonly grpc::Method<global::ChatClient.Request, global::ChatClient.Reply> __Method_SendMessage = new grpc::Method<global::ChatClient.Request, global::ChatClient.Reply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "SendMessage",
-        __Marshaller_ChatClientSendMessageRequest,
-        __Marshaller_ChatClientSendMessageResponse);
+        __Marshaller_Request,
+        __Marshaller_Reply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -90,35 +88,35 @@ namespace ChatClient {
       {
       }
 
-      public virtual global::ChatClient.ChatClientRegisterReply Register(global::ChatClient.ChatClientRegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::ChatClient.Reply Register(global::ChatClient.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Register(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::ChatClient.ChatClientRegisterReply Register(global::ChatClient.ChatClientRegisterRequest request, grpc::CallOptions options)
+      public virtual global::ChatClient.Reply Register(global::ChatClient.Request request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Register, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::ChatClient.ChatClientRegisterReply> RegisterAsync(global::ChatClient.ChatClientRegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::ChatClient.Reply> RegisterAsync(global::ChatClient.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return RegisterAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::ChatClient.ChatClientRegisterReply> RegisterAsync(global::ChatClient.ChatClientRegisterRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::ChatClient.Reply> RegisterAsync(global::ChatClient.Request request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Register, null, options, request);
       }
-      public virtual global::ChatClient.ChatClientSendMessageResponse SendMessage(global::ChatClient.ChatClientSendMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::ChatClient.Reply SendMessage(global::ChatClient.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SendMessage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::ChatClient.ChatClientSendMessageResponse SendMessage(global::ChatClient.ChatClientSendMessageRequest request, grpc::CallOptions options)
+      public virtual global::ChatClient.Reply SendMessage(global::ChatClient.Request request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_SendMessage, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::ChatClient.ChatClientSendMessageResponse> SendMessageAsync(global::ChatClient.ChatClientSendMessageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::ChatClient.Reply> SendMessageAsync(global::ChatClient.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SendMessageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::ChatClient.ChatClientSendMessageResponse> SendMessageAsync(global::ChatClient.ChatClientSendMessageRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::ChatClient.Reply> SendMessageAsync(global::ChatClient.Request request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_SendMessage, null, options, request);
       }

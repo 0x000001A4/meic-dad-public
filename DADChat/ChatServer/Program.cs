@@ -20,39 +20,39 @@ namespace ChatServer {
 			process = _process;
 		}
 
-		public override Task<ChatClientRegisterReply> Register(
-			ChatClientRegisterRequest request, ServerCallContext context) {
+		public override Task<Reply> Register(
+			Request request, ServerCallContext context) {
 			return Task.FromResult(Reg(request));
 		}
 		
-		public ChatClientRegisterReply Reg(ChatClientRegisterRequest request) {
-            if (process.Frozen) return new ChatClientRegisterReply { Ok = true };
-			doReg(request);
-			return new ChatClientRegisterReply { Ok = true };
+		public Reply Reg(Request request) {
+            if (process.Frozen) return new Reply { Ok = false };
+			doHandleRegister(request);
+			return new Reply { Ok = true };
 		}
 
-		void doReg(ChatClientRegisterRequest request) {
+		public void doHandleRegister(Request request) {
             lock (this) {
-                clientMap.Add(request.Nick, request.Url);
+                clientMap.Add(request.RegisterRequest.Nick, request.RegisterRequest.Url);
             }
-            Console.WriteLine($"Registered client {request.Nick} with URL {request.Url}");
+            Console.WriteLine($"Registered client {request.RegisterRequest.Nick} with URL {request.RegisterRequest.Url}");
         }
 
-		public override Task<ChatClientSendMessageReply> SendMessage(
-			ChatClientSendMessageRequest request, ServerCallContext context) {
+		public override Task<Reply> SendMessage(
+			Request request, ServerCallContext context) {
 
 			return Task.FromResult(HandleMsg(request));
 		}
 
-		public ChatClientSendMessageReply HandleMsg(ChatClientSendMessageRequest request) {
-			if (process.Frozen) return new ChatClientSendMessageReply { Ok = true };
+		public Reply HandleMsg(Request request) {
+			if (process.Frozen) return new Reply { Ok = false };
 			doHandleMsg(request);
-			return new ChatClientSendMessageReply { Ok = true }; 
+			return new Reply { Ok = true }; 
 		}
 
-		public void doHandleMsg(ChatClientSendMessageRequest request) {
-            clientFrontend.BroadcastMsg(request.Msg, clientMap, request.From);
-            Console.WriteLine($"Received Message: {request.Msg}");
+		public void doHandleMsg(Request request) {
+            clientFrontend.BroadcastMsg(request.SendMessageRequest.Msg, clientMap, request.SendMessageRequest.From);
+            Console.WriteLine($"Received Message: {request.SendMessageRequest.Msg}");
         }
 
 	}
@@ -60,7 +60,6 @@ namespace ChatServer {
 	public class ServerMessageInterceptor : Interceptor {
 
 		public Program process;
-		public int i = 0;
 
 		public ServerMessageInterceptor(Program _process) {
 			process = _process;
@@ -72,9 +71,8 @@ namespace ChatServer {
 			UnaryServerMethod<TRequest, TResponse> continuation)
 		{
             try {
-				i = i + 1;
-                if (process.Frozen && i > 0) {
-                    process.queue.Enqueue((ChatClientSendMessageRequest)(object)(request));
+                if (process.Frozen) {
+                    process.queue.Enqueue((Request)(object)(request));
                 }
                 return await continuation(request, context);
 
@@ -87,10 +85,16 @@ namespace ChatServer {
 	public class Program {
 		const int Port = 8000;
 		public bool Frozen { get; set; } = false;
-        public Queue<ChatClientSendMessageRequest> queue { get; set; } = new Queue<ChatClientSendMessageRequest>();
+        public Queue<Request> queue { get; set; } = new Queue<Request>();
 
-		public void handleQueuedRequest(ServerService service, ChatClientSendMessageRequest request) {
-			service.doHandleMsg(request);
+		public void handleQueuedRequest(ServerService service, Request request) {
+
+			if (request.Id == 1) {
+                service.doHandleRegister(request);
+            }
+			else if (request.Id == 2) {
+                service.doHandleMsg(request);
+            }
 		}
 
         static void Main(string[] args) {

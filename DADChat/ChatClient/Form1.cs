@@ -45,9 +45,12 @@ namespace ChatClient {
 
             channel = GrpcChannel.ForAddress(serverAddress);
             client = new ChatServerService.ChatServerServiceClient(channel);
-            var reply = client.Register(
-						 new ChatClientRegisterRequest { Nick = textBox2.Text, Url = clientAddress }
-						 );
+
+			Request request = new Request { Id = 1 };
+			request.RegisterRequest = new Request.Types.RegisterReq();
+			request.RegisterRequest.Nick = textBox2.Text;
+			request.RegisterRequest.Url = clientAddress;
+            var reply = client.Register(request);
 
 			if (reply.Ok) { 
 				label3.Text = $"Connected to {serverAddress}";
@@ -98,9 +101,11 @@ namespace ChatClient {
 
 		private void button2_Click(object sender, EventArgs e) {
 			if (listening) {
-				var reply = client.SendMessage(
-						new ChatClientSendMessageRequest { Msg = richTextBox1.Text, From = textBox2.Text }
-						);
+				Request request = new Request { Id = 2 };
+                request.SendMessageRequest = new Request.Types.SendMessageReq();
+                request.SendMessageRequest.Msg = richTextBox1.Text;
+                request.SendMessageRequest.From = textBox2.Text;
+                var reply = client.SendMessage(request);
 
 				if (reply.Ok)
 					label4.Text = "Message sent.";

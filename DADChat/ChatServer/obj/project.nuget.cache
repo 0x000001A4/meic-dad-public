@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C+d4iXPJKFmGTjcUJ+yVXJLxIM3zsJBE5C5b+kfnKw/DDtiJH8BRzj+d5paym/WeUzXUYsb+HIzuj2/7TMj61A==",
+  "dgSpecHash": "yHLdPaj3CYdJ5arKf9YANNqY4ryHu8l+aPMpN8hBsPl8NLRkjhu3LRzXTr5dYaZBCXgCMs66dq9Di/KVR8fTlQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\Labs\\Lab1\\DADChat\\ChatServer\\ChatServer.csproj",
+  "projectFilePath": "C:\\Users\\ricky\\Personal\\School\\MEIC\\DAD\\meic-dad-public\\DADChat\\ChatServer\\ChatServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ricky\\.nuget\\packages\\google.protobuf\\3.13.0\\google.protobuf.3.13.0.nupkg.sha512",
     "C:\\Users\\ricky\\.nuget\\packages\\grpc.core\\2.32.0\\grpc.core.2.32.0.nupkg.sha512",

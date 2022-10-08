@@ -24,38 +24,36 @@ namespace ChatServer {
     static DADChatServicesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Chxwcm90b3MvREFEQ2hhdFNlcnZpY2VzLnByb3RvIjYKGUNoYXRDbGllbnRS",
-            "ZWdpc3RlclJlcXVlc3QSDAoEbmljaxgBIAEoCRILCgN1cmwYAiABKAkiJQoX",
-            "Q2hhdENsaWVudFJlZ2lzdGVyUmVwbHkSCgoCb2sYASABKAgiOQocQ2hhdENs",
-            "aWVudFNlbmRNZXNzYWdlUmVxdWVzdBILCgNtc2cYASABKAkSDAoEZnJvbRgC",
-            "IAEoCSIoChpDaGF0Q2xpZW50U2VuZE1lc3NhZ2VSZXBseRIKCgJvaxgBIAEo",
-            "CDKgAQoRQ2hhdFNlcnZlclNlcnZpY2USQAoIUmVnaXN0ZXISGi5DaGF0Q2xp",
-            "ZW50UmVnaXN0ZXJSZXF1ZXN0GhguQ2hhdENsaWVudFJlZ2lzdGVyUmVwbHkS",
-            "SQoLU2VuZE1lc3NhZ2USHS5DaGF0Q2xpZW50U2VuZE1lc3NhZ2VSZXF1ZXN0",
-            "GhsuQ2hhdENsaWVudFNlbmRNZXNzYWdlUmVwbHlCDaoCCkNoYXRTZXJ2ZXJi",
-            "BnByb3RvMw=="));
+            "Chxwcm90b3MvREFEQ2hhdFNlcnZpY2VzLnByb3RvItsBCgdSZXF1ZXN0EgoK",
+            "AmlkGAEgASgNEi8KD1JlZ2lzdGVyUmVxdWVzdBgCIAEoCzIULlJlcXVlc3Qu",
+            "UmVnaXN0ZXJSZXFIABI1ChJTZW5kTWVzc2FnZVJlcXVlc3QYAyABKAsyFy5S",
+            "ZXF1ZXN0LlNlbmRNZXNzYWdlUmVxSAAaKAoLUmVnaXN0ZXJSZXESDAoEbmlj",
+            "axgBIAEoCRILCgN1cmwYAiABKAkaKwoOU2VuZE1lc3NhZ2VSZXESCwoDbXNn",
+            "GAEgASgJEgwKBGZyb20YAiABKAlCBQoDbXNnIhMKBVJlcGx5EgoKAm9rGAEg",
+            "ASgIMlIKEUNoYXRTZXJ2ZXJTZXJ2aWNlEhwKCFJlZ2lzdGVyEgguUmVxdWVz",
+            "dBoGLlJlcGx5Eh8KC1NlbmRNZXNzYWdlEgguUmVxdWVzdBoGLlJlcGx5Qg2q",
+            "AgpDaGF0U2VydmVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.ChatClientRegisterRequest), global::ChatServer.ChatClientRegisterRequest.Parser, new[]{ "Nick", "Url" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.ChatClientRegisterReply), global::ChatServer.ChatClientRegisterReply.Parser, new[]{ "Ok" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.ChatClientSendMessageRequest), global::ChatServer.ChatClientSendMessageRequest.Parser, new[]{ "Msg", "From" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.ChatClientSendMessageReply), global::ChatServer.ChatClientSendMessageReply.Parser, new[]{ "Ok" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.Request), global::ChatServer.Request.Parser, new[]{ "Id", "RegisterRequest", "SendMessageRequest" }, new[]{ "Msg" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.Request.Types.RegisterReq), global::ChatServer.Request.Types.RegisterReq.Parser, new[]{ "Nick", "Url" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.Request.Types.SendMessageReq), global::ChatServer.Request.Types.SendMessageReq.Parser, new[]{ "Msg", "From" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ChatServer.Reply), global::ChatServer.Reply.Parser, new[]{ "Ok" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class ChatClientRegisterRequest : pb::IMessage<ChatClientRegisterRequest>
+  public sealed partial class Request : pb::IMessage<Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ChatClientRegisterRequest> _parser = new pb::MessageParser<ChatClientRegisterRequest>(() => new ChatClientRegisterRequest());
+    private static readonly pb::MessageParser<Request> _parser = new pb::MessageParser<Request>(() => new Request());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ChatClientRegisterRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<Request> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -68,69 +66,111 @@ namespace ChatServer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientRegisterRequest() {
+    public Request() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientRegisterRequest(ChatClientRegisterRequest other) : this() {
-      nick_ = other.nick_;
-      url_ = other.url_;
+    public Request(Request other) : this() {
+      id_ = other.id_;
+      switch (other.MsgCase) {
+        case MsgOneofCase.RegisterRequest:
+          RegisterRequest = other.RegisterRequest.Clone();
+          break;
+        case MsgOneofCase.SendMessageRequest:
+          SendMessageRequest = other.SendMessageRequest.Clone();
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientRegisterRequest Clone() {
-      return new ChatClientRegisterRequest(this);
+    public Request Clone() {
+      return new Request(this);
     }
 
-    /// <summary>Field number for the "nick" field.</summary>
-    public const int NickFieldNumber = 1;
-    private string nick_ = "";
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private uint id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Nick {
-      get { return nick_; }
+    public uint Id {
+      get { return id_; }
       set {
-        nick_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
-    /// <summary>Field number for the "url" field.</summary>
-    public const int UrlFieldNumber = 2;
-    private string url_ = "";
+    /// <summary>Field number for the "RegisterRequest" field.</summary>
+    public const int RegisterRequestFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Url {
-      get { return url_; }
+    public global::ChatServer.Request.Types.RegisterReq RegisterRequest {
+      get { return msgCase_ == MsgOneofCase.RegisterRequest ? (global::ChatServer.Request.Types.RegisterReq) msg_ : null; }
       set {
-        url_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        msg_ = value;
+        msgCase_ = value == null ? MsgOneofCase.None : MsgOneofCase.RegisterRequest;
       }
+    }
+
+    /// <summary>Field number for the "SendMessageRequest" field.</summary>
+    public const int SendMessageRequestFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::ChatServer.Request.Types.SendMessageReq SendMessageRequest {
+      get { return msgCase_ == MsgOneofCase.SendMessageRequest ? (global::ChatServer.Request.Types.SendMessageReq) msg_ : null; }
+      set {
+        msg_ = value;
+        msgCase_ = value == null ? MsgOneofCase.None : MsgOneofCase.SendMessageRequest;
+      }
+    }
+
+    private object msg_;
+    /// <summary>Enum of possible cases for the "msg" oneof.</summary>
+    public enum MsgOneofCase {
+      None = 0,
+      RegisterRequest = 2,
+      SendMessageRequest = 3,
+    }
+    private MsgOneofCase msgCase_ = MsgOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MsgOneofCase MsgCase {
+      get { return msgCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void ClearMsg() {
+      msgCase_ = MsgOneofCase.None;
+      msg_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as ChatClientRegisterRequest);
+      return Equals(other as Request);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ChatClientRegisterRequest other) {
+    public bool Equals(Request other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Nick != other.Nick) return false;
-      if (Url != other.Url) return false;
+      if (Id != other.Id) return false;
+      if (!object.Equals(RegisterRequest, other.RegisterRequest)) return false;
+      if (!object.Equals(SendMessageRequest, other.SendMessageRequest)) return false;
+      if (MsgCase != other.MsgCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Nick.Length != 0) hash ^= Nick.GetHashCode();
-      if (Url.Length != 0) hash ^= Url.GetHashCode();
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (msgCase_ == MsgOneofCase.RegisterRequest) hash ^= RegisterRequest.GetHashCode();
+      if (msgCase_ == MsgOneofCase.SendMessageRequest) hash ^= SendMessageRequest.GetHashCode();
+      hash ^= (int) msgCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -147,13 +187,17 @@ namespace ChatServer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Nick.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Nick);
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Id);
       }
-      if (Url.Length != 0) {
+      if (msgCase_ == MsgOneofCase.RegisterRequest) {
         output.WriteRawTag(18);
-        output.WriteString(Url);
+        output.WriteMessage(RegisterRequest);
+      }
+      if (msgCase_ == MsgOneofCase.SendMessageRequest) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SendMessageRequest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -164,13 +208,17 @@ namespace ChatServer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Nick.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Nick);
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Id);
       }
-      if (Url.Length != 0) {
+      if (msgCase_ == MsgOneofCase.RegisterRequest) {
         output.WriteRawTag(18);
-        output.WriteString(Url);
+        output.WriteMessage(RegisterRequest);
+      }
+      if (msgCase_ == MsgOneofCase.SendMessageRequest) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SendMessageRequest);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -181,11 +229,14 @@ namespace ChatServer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Nick.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Nick);
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
       }
-      if (Url.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
+      if (msgCase_ == MsgOneofCase.RegisterRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RegisterRequest);
+      }
+      if (msgCase_ == MsgOneofCase.SendMessageRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SendMessageRequest);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -194,16 +245,28 @@ namespace ChatServer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ChatClientRegisterRequest other) {
+    public void MergeFrom(Request other) {
       if (other == null) {
         return;
       }
-      if (other.Nick.Length != 0) {
-        Nick = other.Nick;
+      if (other.Id != 0) {
+        Id = other.Id;
       }
-      if (other.Url.Length != 0) {
-        Url = other.Url;
+      switch (other.MsgCase) {
+        case MsgOneofCase.RegisterRequest:
+          if (RegisterRequest == null) {
+            RegisterRequest = new global::ChatServer.Request.Types.RegisterReq();
+          }
+          RegisterRequest.MergeFrom(other.RegisterRequest);
+          break;
+        case MsgOneofCase.SendMessageRequest:
+          if (SendMessageRequest == null) {
+            SendMessageRequest = new global::ChatServer.Request.Types.SendMessageReq();
+          }
+          SendMessageRequest.MergeFrom(other.SendMessageRequest);
+          break;
       }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -218,12 +281,26 @@ namespace ChatServer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Nick = input.ReadString();
+          case 8: {
+            Id = input.ReadUInt32();
             break;
           }
           case 18: {
-            Url = input.ReadString();
+            global::ChatServer.Request.Types.RegisterReq subBuilder = new global::ChatServer.Request.Types.RegisterReq();
+            if (msgCase_ == MsgOneofCase.RegisterRequest) {
+              subBuilder.MergeFrom(RegisterRequest);
+            }
+            input.ReadMessage(subBuilder);
+            RegisterRequest = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ChatServer.Request.Types.SendMessageReq subBuilder = new global::ChatServer.Request.Types.SendMessageReq();
+            if (msgCase_ == MsgOneofCase.SendMessageRequest) {
+              subBuilder.MergeFrom(SendMessageRequest);
+            }
+            input.ReadMessage(subBuilder);
+            SendMessageRequest = subBuilder;
             break;
           }
         }
@@ -240,12 +317,26 @@ namespace ChatServer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Nick = input.ReadString();
+          case 8: {
+            Id = input.ReadUInt32();
             break;
           }
           case 18: {
-            Url = input.ReadString();
+            global::ChatServer.Request.Types.RegisterReq subBuilder = new global::ChatServer.Request.Types.RegisterReq();
+            if (msgCase_ == MsgOneofCase.RegisterRequest) {
+              subBuilder.MergeFrom(RegisterRequest);
+            }
+            input.ReadMessage(subBuilder);
+            RegisterRequest = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ChatServer.Request.Types.SendMessageReq subBuilder = new global::ChatServer.Request.Types.SendMessageReq();
+            if (msgCase_ == MsgOneofCase.SendMessageRequest) {
+              subBuilder.MergeFrom(SendMessageRequest);
+            }
+            input.ReadMessage(subBuilder);
+            SendMessageRequest = subBuilder;
             break;
           }
         }
@@ -253,17 +344,440 @@ namespace ChatServer {
     }
     #endif
 
+    #region Nested types
+    /// <summary>Container for nested types declared in the Request message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public sealed partial class RegisterReq : pb::IMessage<RegisterReq>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<RegisterReq> _parser = new pb::MessageParser<RegisterReq>(() => new RegisterReq());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<RegisterReq> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::ChatServer.Request.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public RegisterReq() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public RegisterReq(RegisterReq other) : this() {
+          nick_ = other.nick_;
+          url_ = other.url_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public RegisterReq Clone() {
+          return new RegisterReq(this);
+        }
+
+        /// <summary>Field number for the "nick" field.</summary>
+        public const int NickFieldNumber = 1;
+        private string nick_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Nick {
+          get { return nick_; }
+          set {
+            nick_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "url" field.</summary>
+        public const int UrlFieldNumber = 2;
+        private string url_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Url {
+          get { return url_; }
+          set {
+            url_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as RegisterReq);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(RegisterReq other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Nick != other.Nick) return false;
+          if (Url != other.Url) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Nick.Length != 0) hash ^= Nick.GetHashCode();
+          if (Url.Length != 0) hash ^= Url.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (Nick.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Nick);
+          }
+          if (Url.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(Url);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Nick.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Nick);
+          }
+          if (Url.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(Url);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (Nick.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Nick);
+          }
+          if (Url.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(RegisterReq other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Nick.Length != 0) {
+            Nick = other.Nick;
+          }
+          if (other.Url.Length != 0) {
+            Url = other.Url;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                Nick = input.ReadString();
+                break;
+              }
+              case 18: {
+                Url = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                Nick = input.ReadString();
+                break;
+              }
+              case 18: {
+                Url = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+      public sealed partial class SendMessageReq : pb::IMessage<SendMessageReq>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<SendMessageReq> _parser = new pb::MessageParser<SendMessageReq>(() => new SendMessageReq());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<SendMessageReq> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::ChatServer.Request.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public SendMessageReq() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public SendMessageReq(SendMessageReq other) : this() {
+          msg_ = other.msg_;
+          from_ = other.from_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public SendMessageReq Clone() {
+          return new SendMessageReq(this);
+        }
+
+        /// <summary>Field number for the "msg" field.</summary>
+        public const int MsgFieldNumber = 1;
+        private string msg_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Msg {
+          get { return msg_; }
+          set {
+            msg_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "from" field.</summary>
+        public const int FromFieldNumber = 2;
+        private string from_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string From {
+          get { return from_; }
+          set {
+            from_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as SendMessageReq);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(SendMessageReq other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Msg != other.Msg) return false;
+          if (From != other.From) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Msg.Length != 0) hash ^= Msg.GetHashCode();
+          if (From.Length != 0) hash ^= From.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (Msg.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Msg);
+          }
+          if (From.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(From);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Msg.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Msg);
+          }
+          if (From.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(From);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (Msg.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Msg);
+          }
+          if (From.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(From);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(SendMessageReq other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Msg.Length != 0) {
+            Msg = other.Msg;
+          }
+          if (other.From.Length != 0) {
+            From = other.From;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                Msg = input.ReadString();
+                break;
+              }
+              case 18: {
+                From = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                Msg = input.ReadString();
+                break;
+              }
+              case 18: {
+                From = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+    }
+    #endregion
+
   }
 
-  public sealed partial class ChatClientRegisterReply : pb::IMessage<ChatClientRegisterReply>
+  public sealed partial class Reply : pb::IMessage<Reply>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ChatClientRegisterReply> _parser = new pb::MessageParser<ChatClientRegisterReply>(() => new ChatClientRegisterReply());
+    private static readonly pb::MessageParser<Reply> _parser = new pb::MessageParser<Reply>(() => new Reply());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ChatClientRegisterReply> Parser { get { return _parser; } }
+    public static pb::MessageParser<Reply> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -276,21 +790,21 @@ namespace ChatServer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientRegisterReply() {
+    public Reply() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientRegisterReply(ChatClientRegisterReply other) : this() {
+    public Reply(Reply other) : this() {
       ok_ = other.ok_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientRegisterReply Clone() {
-      return new ChatClientRegisterReply(this);
+    public Reply Clone() {
+      return new Reply(this);
     }
 
     /// <summary>Field number for the "ok" field.</summary>
@@ -306,11 +820,11 @@ namespace ChatServer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as ChatClientRegisterReply);
+      return Equals(other as Reply);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ChatClientRegisterReply other) {
+    public bool Equals(Reply other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -377,387 +891,7 @@ namespace ChatServer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ChatClientRegisterReply other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Ok != false) {
-        Ok = other.Ok;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Ok = input.ReadBool();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Ok = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class ChatClientSendMessageRequest : pb::IMessage<ChatClientSendMessageRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<ChatClientSendMessageRequest> _parser = new pb::MessageParser<ChatClientSendMessageRequest>(() => new ChatClientSendMessageRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ChatClientSendMessageRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ChatServer.DADChatServicesReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientSendMessageRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientSendMessageRequest(ChatClientSendMessageRequest other) : this() {
-      msg_ = other.msg_;
-      from_ = other.from_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientSendMessageRequest Clone() {
-      return new ChatClientSendMessageRequest(this);
-    }
-
-    /// <summary>Field number for the "msg" field.</summary>
-    public const int MsgFieldNumber = 1;
-    private string msg_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Msg {
-      get { return msg_; }
-      set {
-        msg_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "from" field.</summary>
-    public const int FromFieldNumber = 2;
-    private string from_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string From {
-      get { return from_; }
-      set {
-        from_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ChatClientSendMessageRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ChatClientSendMessageRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Msg != other.Msg) return false;
-      if (From != other.From) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Msg.Length != 0) hash ^= Msg.GetHashCode();
-      if (From.Length != 0) hash ^= From.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Msg.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Msg);
-      }
-      if (From.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(From);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Msg.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Msg);
-      }
-      if (From.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(From);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Msg.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Msg);
-      }
-      if (From.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(From);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ChatClientSendMessageRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Msg.Length != 0) {
-        Msg = other.Msg;
-      }
-      if (other.From.Length != 0) {
-        From = other.From;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Msg = input.ReadString();
-            break;
-          }
-          case 18: {
-            From = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            Msg = input.ReadString();
-            break;
-          }
-          case 18: {
-            From = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class ChatClientSendMessageReply : pb::IMessage<ChatClientSendMessageReply>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<ChatClientSendMessageReply> _parser = new pb::MessageParser<ChatClientSendMessageReply>(() => new ChatClientSendMessageReply());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ChatClientSendMessageReply> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ChatServer.DADChatServicesReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientSendMessageReply() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientSendMessageReply(ChatClientSendMessageReply other) : this() {
-      ok_ = other.ok_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatClientSendMessageReply Clone() {
-      return new ChatClientSendMessageReply(this);
-    }
-
-    /// <summary>Field number for the "ok" field.</summary>
-    public const int OkFieldNumber = 1;
-    private bool ok_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Ok {
-      get { return ok_; }
-      set {
-        ok_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ChatClientSendMessageReply);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ChatClientSendMessageReply other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Ok != other.Ok) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Ok != false) hash ^= Ok.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Ok != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Ok);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Ok != false) {
-        output.WriteRawTag(8);
-        output.WriteBool(Ok);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Ok != false) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ChatClientSendMessageReply other) {
+    public void MergeFrom(Reply other) {
       if (other == null) {
         return;
       }
